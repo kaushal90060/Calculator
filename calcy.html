@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calcy.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Libre:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>MY CALCULATOR</h1>
+    <div class="container">
+      <div class="divbox">|||||||||||||||||||</div>
+      <input type="text" class="Input" id="divbox1" disabled />
+      <div class="gridView">
+        <button class="btn" value="(">(</button>
+        <button class="btn" value=")">)</button>
+        <button class="btn" id="botnC" value="C">C</button>
+        <button class="btn" value="%">%</button>
+        <button class="btn" value="1">1</button>
+        <button class="btn" value="2">2</button>
+        <button class="btn" value="3">3</button>
+        <button class="btn" value="+">+</button>
+        <button class="btn" value="4">4</button>
+        <button class="btn" value="5">5</button>
+        <button class="btn" value="6">6</button>
+        <button class="btn" value="-">-</button>
+        <button class="btn" value="7">7</button>
+        <button class="btn" value="8">8</button>
+        <button class="btn" value="9">9</button>
+        <button class="btn" value="*">X</button>
+        <button class="btn" value="0">0</button>
+        <button class="btn" value="/">/</button>
+        <button class="btn" value=".">.</button>
+        <button class="btn" id="botne" value="=">=</button>
+      </div>
+    </div>
+    <button id="btom">
+      <a
+        href="https://www.linkedin.com/in/kaushal-pandit-3a6845190"
+        target="blank"
+      >
+        Contact Me</a
+      >
+    </button>
+    <script>
+      const buttons = document.querySelectorAll("button");
+      const screen = document.querySelector(".Input");
+
+      //Add eventlistener to each button
+      buttons.forEach(function (button) {
+        button.addEventListener("click", calculate);
+      });
+
+      function calculate(event) {
+        const clicKed = event.target.value;
+        console.log("Clicked : ", clicKed);
+        if (clicKed == "=") {
+          if (screen.value != "") {
+            screen.value = eval(screen.value);
+          }
+        } else if (clicKed == "C") {
+          screen.value = "";
+        } else {
+          screen.value += clicKed;
+        }
+      }
+    </script>
+  </body>
+</html>
